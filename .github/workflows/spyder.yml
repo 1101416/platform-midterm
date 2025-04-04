@@ -1,4 +1,4 @@
-name: Run Taiwan Stock Scraper
+name: 台積電股票(2330)資訊
 
 on:
   schedule:
