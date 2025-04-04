@@ -1,1 +1,35 @@
+name: Run Taiwan Stock Scraper
 
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 台灣時間每日 16:00（UTC+8:00 = 08:00 UTC）
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 下載程式碼
+        uses: actions/checkout@v3
+
+      - name: 設定 Python 環境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 安裝相依套件
+        run: pip install requests beautifulsoup4
+
+      - name: 執行靜態爬蟲
+        run: python static.py
+
+      - name: 執行 API 爬蟲
+        run: python api.py
+
+      - name: 提交更新結果
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add static.json api.csv
+          git commit -m "Update stock data"
+          git push
