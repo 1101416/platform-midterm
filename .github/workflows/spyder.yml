@@ -2,7 +2,7 @@ name: Run Taiwan Stock Scraper
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # 台灣時間每日 16:00（UTC+8:00 = 08:00 UTC）
+    - cron: '0 6 * * *'  # 台灣時間每日 14:00
   workflow_dispatch:
 
 jobs:
