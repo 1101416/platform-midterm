@@ -4,7 +4,8 @@ on:
   schedule:
     - cron: '0 6 * * *'  # 台灣時間每日 14:00
   workflow_dispatch:
-
+permissions:
+  contents: write
 jobs:
   scrape:
     runs-on: ubuntu-latest
