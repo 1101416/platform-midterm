@@ -2,7 +2,7 @@ import requests
 import csv
 
 #台灣證交所API（台積電2330）
-API_URL = "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240301&stockNo=2330"
+API_URL = "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20250301&stockNo=2330"
 
 response = requests.get(API_URL)
 data = response.json()
